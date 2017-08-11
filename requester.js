@@ -1,4 +1,3 @@
-const request = require('request-promise');
 const rp = require('request-promise')
 
 module.exports = async (phrase) => {
