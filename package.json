@@ -1,0 +1,13 @@
+{
+  "name": "desafio",
+  "version": "1.0.0",
+  "description": "Desafio para vaga de estágio Starline",
+  "main": "desafio.js",
+  "scripts": {},
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1"
+  }
+}
