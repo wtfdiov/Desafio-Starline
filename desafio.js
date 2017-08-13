@@ -6,23 +6,35 @@ async function process(){
     let charAtual = String.fromCharCode(65)
     let tamanhoReal = 999
     let valida = charAtual.repeat(tamanhoReal)
+    let specialChars = {
+        "*": 42,
+        "'": 39,
+        "!": 33,
+        ".": 46,
+        ",": 44,
+        ":": 58,
+        ";": 59,
+        "#": 35,
+        "$": 36,
+        "%": 37,
+        "&": 38,
+        " ": 32
+    }
     
     let data = await requester(valida)
     realPhrase = data
     tamanhoReal = data.length
 
-    for(let i = 32; i < 61; i++){
-        let ignore = '!'
-        charAtual = String.fromCharCode(i)
+    for (char in specialChars) {
+        charAtual = String.fromCharCode(specialChars[char])
         valida = charAtual.repeat(tamanhoReal)
         data = await requester(valida)
-
-        //DEBUG: console.log(`string start:${data}:end string`)
 
         for(let j = 0; j < data.length; j++){
             if(data[j] === charAtual)
                 realPhrase = replaceAt(realPhrase, j, charAtual)
         }
+        //DEBUG: console.log(`string start:${realPhrase}:end string ${charAtual}`)
     }
     
     for(let i = 65; i < 91; i++){
